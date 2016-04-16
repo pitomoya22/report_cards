@@ -1,0 +1,5 @@
+var comment = "<%= j @comment %>";
+comment = comment.replace(/(?:\r\n|\r|\n)/g, '<br />');
+console.log(comment);
+$("#narrative-well").html(comment);
+

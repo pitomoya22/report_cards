@@ -1,0 +1,44 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Report Cards</h1>
+    <p>Enter some grades and get back some comments!</p>
+    <span class="btn btn-primary btn-lg">Save time!</span>
+    <span class="btn btn-primary btn-lg">Sleep! (?)</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div id="data-entry" class="col-lg-6">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Report Card</h3>
+        </div>
+
+        <div class="panel-body">
+          <%= simple_form_for :comment, { url: comments_path, remote: true } do |f| %>
+            <%= f.input :year, input_html: { value: 2016 } %>
+            <%= f.input :term, input_html: { value: "Spring" } %>
+            <%= f.input :name %>
+            <%= f.input :gender, as: :select, collection: ["female", "male"] %>
+            <%= f.input :english %>
+            <%= f.input :science %>
+            <%= f.input :math %>
+            <%= f.input :social_studies %>
+            <%= f.input :behavior %>
+            <%= f.submit "Generate Comments", class: "btn btn-large btn-success" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="narrative" class="col-lg-6">
+      <legend><h2>Your Comments</h2></legend>
+      <div id="narrative-well" class="well well-lg">
+        Submit the form to get some comments!
+      </div>
+    </div>
+  </div>
+</div>
